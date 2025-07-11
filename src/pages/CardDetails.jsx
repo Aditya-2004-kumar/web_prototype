@@ -56,7 +56,7 @@ function CardDetails() {
         <span style={styles.indexLink}>🏠︎ Board Index</span>
       </div>
 
-      <div style={styles.forumHeader}>Discription</div>
+      <div style={styles.forumHeader}>Description</div>
     
       
       <div className="abc">
