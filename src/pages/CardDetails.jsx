@@ -59,10 +59,37 @@ function CardDetails() {
       <div style={styles.forumHeader}>Description</div>
     
       
-      <div className="abc">
-      <p><strong>Subject:</strong>{title}</p>
-      <p><strong>Message: </strong>{description}</p>
-      </div>
+      <div className="abc" style={{ maxHeight: '300px', overflowY: 'auto', whiteSpace: 'pre-wrap' }}>
+          <p><strong>Subject:</strong>{title}</p>
+          <div style={{ whiteSpace: "pre-wrap" }}>
+            <p><strong>Message:</strong></p>
+            {description.split('\n').map((line, idx) => {
+              const match = line.match(/\[(.*?)\]\(#uploaded-file\)/);
+              if (match && state.card.file) {
+                return (
+                  <div key={idx}>
+                    📎 <a
+                      href={state.card.file.content}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: 'blue', textDecoration: 'underline' }}
+                    >
+                      {match[1]}
+                    </a>
+                  </div>
+                );
+              } else {
+                return <div key={idx}>{line}</div>;
+              }
+            })}
+          </div>
+        </div>
+
+
+      
+      
+      
+      
       <div className="back">
         <button onClick={() => navigate(-1)} className="underline">
         ← Back

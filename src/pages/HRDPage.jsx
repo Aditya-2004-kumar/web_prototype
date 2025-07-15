@@ -55,11 +55,7 @@ function HrdPage() {
   }, []);
 
 
-  useEffect(() => {
-    if (location.state?.justPosted && location.state.section === 'hrd') {
-      navigate('/hrdpage', { replace: true });
-    }
-  }, [location, navigate]);
+  
 
   return (
     <div style={styles.page}>
